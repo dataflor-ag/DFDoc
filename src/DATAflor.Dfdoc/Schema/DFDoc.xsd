@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2021 (x64) (http://www.altova.com) von Oliver Albrecht (DATAflor AG) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns="http://www.dataflor.de/schemes/dfdoc" targetNamespace="http://www.dataflor.de/schemes/dfdoc" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:element name="Dokumente">
+		<xs:annotation>
+			<xs:documentation>Wurzelelement der Datei</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Version" type="VersionType">
+					<xs:annotation>
+						<xs:documentation>Version des DFDoc</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Programmsystem" type="ProgramSystemType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Informationen mit welchen Programm diese Datei erzeugt wurde</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:sequence maxOccurs="unbounded">
+					<xs:element name="Dokument" type="DocumentType">
+						<xs:annotation>
+							<xs:documentation>Ein einzelnes Dokument</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Verweis auf einen Datensatz im DATAflor BUSINESS</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RefTyp" type="XRefType"/>
+			<xs:element name="RefId" type="DfId"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="VersionType">
+		<xs:annotation>
+			<xs:documentation>Version des DFDoc-Dokumentes</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="XRefType">
+		<xs:annotation>
+			<xs:documentation>Welchen Typ von Datensatz bezeichnet das Feld RefId</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Adresse"/>
+			<xs:enumeration value="Auftraggeber"/>
+			<xs:enumeration value="Kontakt"/>
+			<xs:enumeration value="Mitarbeiter"/>
+			<xs:enumeration value="LV"/>
+			<xs:enumeration value="LV-Variante"/>
+			<xs:enumeration value="LV-Nachtrag"/>
+			<xs:enumeration value="LV-Bieter"/>
+			<xs:enumeration value="Projekt"/>
+			<xs:enumeration value="Objekt"/>
+			<xs:enumeration value="Position"/>
+			<xs:enumeration value="Hierarchiestufe"/>
+			<xs:enumeration value="Gerät"/>
+			<xs:enumeration value="Leistung"/>
+			<xs:enumeration value="Standardleistungskatalog"/>
+			<xs:enumeration value="Kreditorenrechnung"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TargetTyp">
+		<xs:annotation>
+			<xs:documentation>Was soll mit dem Dokument gemacht werden</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DMS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DfId">
+		<xs:annotation>
+			<xs:documentation>Eine Id im DATAflor BUSINESS (maximale Länge 15 Zeichen)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:normalizedString">
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="DocumentType">
+		<xs:annotation>
+			<xs:documentation>Informationen zu einem Dokument in der Datei</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Dateiname">
+				<xs:annotation>
+					<xs:documentation>Name der zugehörigen Datei</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ziel" type="TargetTyp">
+				<xs:annotation>
+					<xs:documentation>Was soll mit der Datei gemacht werden. Bisher nur DMS zur Aufnahme in das DMS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ersteller" type="CreatorType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Informationen zum Ersteller des Dokumentes</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="DMS" type="DMSType">
+					<xs:annotation>
+						<xs:documentation>Informationen zur Aufnahme in das DMS</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DMSType">
+		<xs:annotation>
+			<xs:documentation>Informationen zur Aufnahme in das DMS</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Bezeichnung">
+				<xs:annotation>
+					<xs:documentation>Bezeichnung des Dokumentes im DMS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Verantwortlich">
+				<xs:annotation>
+					<xs:documentation>Verantwortlicher im DMS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Kategorie">
+				<xs:annotation>
+					<xs:documentation>Kategorie für den DMS-Eintrag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Dokumentenart">
+				<xs:annotation>
+					<xs:documentation>Dokumentenart für den DMS-Eintrag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Notiz">
+				<xs:annotation>
+					<xs:documentation>Notiz/Schlagworte</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Hauptreferenz" type="ReferenceType">
+				<xs:annotation>
+					<xs:documentation>Verweis auf den Datensatz im DATAflor BUSINESS an den das Dokument gehängt werden soll.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WeitereReferenzen" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Verweisee auf weiterer Datensätze im DATAflor BUSINESS an die dieses Dokument gehängt wird.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="WeitereReferenz" type="ReferenceType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProgramSystemType">
+		<xs:annotation>
+			<xs:documentation>Informationen zum Programm, dass diese Datei erstellt hat</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Programmname" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name des Programmes</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Version" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Programmversion</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreatorType">
+		<xs:annotation>
+			<xs:documentation>Informationen zum Ersteller des Dokumentes</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Name des Erstellers</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Datum" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Datum/Uhrzeit der Erstellung (UTC)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MitarbeiterId" type="DfId" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Id des Mitarbeiters im DATAflor BUSINESS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

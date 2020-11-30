@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DATAflor.Dfdoc.Tool": {
+      "commandName": "Project",
+      "commandLineArgs": "\"c:\\Users\\Albrecht\\Documents\\DPE\\DPE Rechnungen\\test.dfdoc\" d:\\Temp\\Extracted\\"
+    }
+  }
+}
