@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "DATAflor.Dfdoc.Tool/1.0.0": {
+        "dependencies": {
+          "DATAflor.Dfdoc": "1.0.0"
+        },
+        "runtime": {
+          "DATAflor.Dfdoc.Tool.dll": {}
+        }
+      },
+      "DATAflor.Dfdoc/1.0.0": {
+        "runtime": {
+          "DATAflor.Dfdoc.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DATAflor.Dfdoc.Tool/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DATAflor.Dfdoc/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
