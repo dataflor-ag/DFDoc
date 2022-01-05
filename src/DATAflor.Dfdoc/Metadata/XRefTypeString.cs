@@ -19,6 +19,10 @@
         public const string Leistung = "LEISTUNG";
         public const string Standardleistungskatalog = "STANDARDLEISTUNGSKATALOG";
         public const string Kreditorenrechnung = "KREDITORENRECHNUNG";
+        public const string VKPosition = "VKPOSITION";
+        public const string LVNr = "LV-NR";
+        public const string PersonalNr = "PERSONAL-NR";
+        public const string GeraeteNr = "GERAETE-NR";
 
         public static XRefType ToEnum(string typeString)
         {
@@ -43,6 +47,10 @@
                 case XRefTypeString.Leistung: return XRefType.Leistung;
                 case XRefTypeString.Standardleistungskatalog: return XRefType.Standardleistungskatalog;
                 case XRefTypeString.Kreditorenrechnung: return XRefType.Kreditorenrechnung;
+                case XRefTypeString.VKPosition: return XRefType.VKPosition;
+                case XRefTypeString.LVNr: return XRefType.LVNr;
+                case XRefTypeString.PersonalNr: return XRefType.PersonalNr;
+                case XRefTypeString.GeraeteNr: return XRefType.GeraeteNr;                    
             }
             return XRefType.Unknown;
         }
@@ -67,7 +75,10 @@
                 case XRefType.Leistung: return XRefTypeString.Leistung;
                 case XRefType.Standardleistungskatalog: return XRefTypeString.Standardleistungskatalog;
                 case XRefType.Kreditorenrechnung: return XRefTypeString.Kreditorenrechnung;
-            }
+                case XRefType.VKPosition: return XRefTypeString.VKPosition;
+                case XRefType.LVNr: return XRefTypeString.LVNr;
+                case XRefType.PersonalNr: return XRefTypeString.PersonalNr;
+                case XRefType.GeraeteNr: return XRefTypeString.GeraeteNr;            }
             return XRefTypeString.Unknown;
 
         }
