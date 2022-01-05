@@ -18,9 +18,10 @@
         Geraet = 13,
         Leistung = 14,
         Standardleistungskatalog = 15,
-        VKPosition = 16,
-        LVNr = 17,
-        PersonalNr = 18,
-        GeraeteNr =19
+        Kreditorenrechnung = 16,
+        VKPosition = 17,
+        LVNr = 18,
+        PersonalNr = 19,
+        GeraeteNr = 20
     }
 }
