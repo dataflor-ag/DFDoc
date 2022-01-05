@@ -6,24 +6,24 @@ Aufbau des DMS-Element:
 
 - Bezeichnung : Bezeichnung des Dokumentes im DMS
 - Verantwortlich : Verantwortlicher im DMS
-- Kategorie : Kategorie für den DMS-Eintrag
-- Dokumentenart : Dokumentenart für den DMS-Eintrag
+- Kategorie : Kategorie fÃ¼r den DMS-Eintrag
+- Dokumentenart : Dokumentenart fÃ¼r den DMS-Eintrag
 - Notiz : Notiz/Schlagworte
-- Hauptrefenz : Element vom Typ ReferenzeType. Legt den Datensatz fest, an dem das Dokument primär "hängt".
-- WeitereReferenzen : optionale Liste mit Elementen vom Typ WeitereReferenz für Verweise auf das Dokument zusätzlich zur Hauptreferenz.
+- Hauptrefenz : Element vom Typ ReferenzeType. Legt den Datensatz fest, an dem das Dokument primÃ¤r "hÃ¤ngt".
+- WeitereReferenzen : optionale Liste mit Elementen vom Typ WeitereReferenz fÃ¼r Verweise auf das Dokument zusÃ¤tzlich zur Hauptreferenz.
 
 
-Die Elemente Bezeichnung, Verantwort, Kategorie und Dokumentenart sollten mit einem Wert gefüllt sein, dass sich auch in der jeweiligen Liste im Dokumenteninformationsdialog findet. Andernfalls könnte es zu Problemen kommen, wenn nach dem Dokument gesucht wird.
+Die Elemente Bezeichnung, Verantwort, Kategorie und Dokumentenart sollten mit einem Wert gefÃ¼llt sein, dass sich auch in der jeweiligen Liste im Dokumenteninformationsdialog findet. Andernfalls kÃ¶nnte es zu Problemen kommen, wenn nach dem Dokument gesucht wird.
 
 Notiz ist ein Klartext ohne jegliche Formatierung. 
 
-Hauptreferenz und WeitereReferenzen sollten auf existierende Datensätze im DATAflor BUSINESS verweisen. Sonst kann das Dokument evtl. nur über die Suche gefunden werden, da es keinem bekannten Datensatz zugeordnet ist.
+Hauptreferenz und WeitereReferenzen sollten auf existierende DatensÃ¤tze im DATAflor BUSINESS verweisen. Sonst kann das Dokument evtl. nur Ã¼ber die Suche gefunden werden, da es keinem bekannten Datensatz zugeordnet ist.
 
-## Verknüpfungen des Dokumentes im DATAflor BUSINESS
+## VerknÃ¼pfungen des Dokumentes im DATAflor BUSINESS
 
-Um das importierte Dokument mit vorhandenen Datensätzen im DATAflor BUSINESS zu verknüpfen sind die Einträge HauptReferenz und WeitereRefenzen wichtig.
-Über diese Element wird das Dokument mit einem Datensatz im DATAflor BUSINESS verknüpft. Die Hauptreferenz ist ein Mussfeld, damit das Dokument mindestens an einem Datensatz hängt.
-Alle übergeordneten Datensätze zu einem übergebenen Datensatz (z.B. bei einer Positions-Id die Id des LVs, des Projekts und des Auftraggebers) werden vom Import selbst ermittelt und müssen in den Metadaten nicht angegeben werden.
+Um das importierte Dokument mit vorhandenen DatensÃ¤tzen im DATAflor BUSINESS zu verknÃ¼pfen sind die EintrÃ¤ge HauptReferenz und WeitereRefenzen wichtig.
+Ãœber diese Element wird das Dokument mit einem Datensatz im DATAflor BUSINESS verknÃ¼pft. Die Hauptreferenz ist ein Mussfeld, damit das Dokument mindestens an einem Datensatz hÃ¤ngt.
+Alle Ã¼bergeordneten DatensÃ¤tze zu einem Ã¼bergebenen Datensatz (z.B. bei einer Positions-Id die Id des LVs, des Projekts und des Auftraggebers) werden vom Import selbst ermittelt und mÃ¼ssen in den Metadaten nicht angegeben werden.
 
 ### Beschreibung des Typs ReferenceType
 
@@ -32,9 +32,9 @@ Der Typ ReferenceType ist die Definition der Elemente Hauptreferenz und WeitereR
 Er besteht aus den folgenden Elementen:
 
 - RefTyp : Gibt an auf welche Art von Datensatz sich die folgende RefId bezieht.
-- RefId : Die Id mit dem das Dokument im DATAflor BUSINESS verknüpft werden soll.
+- RefId : Die Id mit dem das Dokument im DATAflor BUSINESS verknÃ¼pft werden soll.
 
-Für das Element RefTyp sind folgende Werte zulässig:
+FÃ¼r das Element RefTyp sind folgende Werte zulÃ¤ssig:
 
 | RefTyp | Art der Datensatz-Id |
 | --- | --- |
@@ -50,6 +50,9 @@ Für das Element RefTyp sind folgende Werte zulässig:
 | OBJEKT | Id bezeichnet ein Objekt |
 | POSITION | Id bezeichnet eine Position |
 | HIERACHIESTUFE | Id bezeichnet eine Hierarchiestufe in einem LV |
-| GERÄT | Id bezeichnet ein Gerät |
+| GERÃ„T | Id bezeichnet ein GerÃ¤t |
 | LEISTUNG | Id bezeichnet eine Standardleistung |
 | KATALOG | Id bezeichnet einen Standardleistungskatalog |
+| LV-NR | Id bezeichnet eine LV-Nummer |
+| PERSONAL-NR | Id bezeichnet eine Personalnummer |
+| GERAETE-NR | Id bezeichnet eine GerÃ¤tenummer |
